@@ -1,43 +1,19 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import * as topicConstants from "./constants/topics";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProblemsDisplay from "./components/ProblemDisplay";
+import Topics from "./components/Topics";
 
 const App = () => {
-  const topics = [
-    topicConstants.slidingWindows,
-    topicConstants.twoPointers,
-    topicConstants.intervals,
-    topicConstants.treeBFS,
-    topicConstants.treeDFS,
-    topicConstants.treeBST,
-    topicConstants.treeGeneral,
-    topicConstants.treeTrie,
-    topicConstants.subsetCombination,
-    topicConstants.backtracking,
-    topicConstants.binaryHeap,
-    topicConstants.graph,
-  ];
   return (
     <div className="App">
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              {topics.map((topic) => (
-                <li key={topic}>
-                  <Link to={`/problem/${topic}`}>{topic}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <Topics />
         <div>
           <Switch>
-            <Route path="/problem/:name">
+            <Route path="/topic/:name">
+              <ProblemsDisplay />
+            </Route>
+            <Route path="/groupTopics/:names">
               <ProblemsDisplay />
             </Route>
             <Route path="/">
@@ -51,7 +27,7 @@ const App = () => {
 };
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>Welcome</h2>;
 }
 
 export default App;

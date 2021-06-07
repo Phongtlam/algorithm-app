@@ -13,7 +13,7 @@ const App = () => {
             <Route path="/topic/:name">
               <ProblemsDisplay />
             </Route>
-            <Route path="/groupTopics/:names">
+            <Route path="/topics/:names">
               <ProblemsDisplay />
             </Route>
             <Route path="/">

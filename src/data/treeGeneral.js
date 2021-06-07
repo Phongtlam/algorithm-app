@@ -1,4 +1,7 @@
-const treeGeneral = {
+import treeDFS from "./treeDFS";
+import treeBST from "./treeBST";
+
+let treeGeneral = {
   "Maximum Depth":
     "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
   "Same Tree": "https://leetcode.com/problems/same-tree/",
@@ -12,5 +15,7 @@ const treeGeneral = {
   "Subtree of Another Tree":
     "https://leetcode.com/problems/subtree-of-another-tree/",
 };
+
+treeGeneral = Object.assign(treeDFS, treeBST, treeGeneral);
 
 export default treeGeneral;

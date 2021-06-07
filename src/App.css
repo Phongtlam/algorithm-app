@@ -25,14 +25,82 @@
 }
 
 .App-link {
-  color: #61dafb;
+  background-color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-button {
+  background-color: #fff;
+  border: 2px solid #0cf;
+  color: #000;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 10px;
+  display: inline;
+}
+
+.App-button:hover {
+  background-color: #0cf;
+  color: #fff;
+}
+
+.App-button-danger, .App-button-danger:hover {
+  background-color: #d9534f;
+  border: 2px solid #d9534f;
+  color: #fff;
+}
+
+.App-button-small {
+  font-size: 0.75em;
+}
+
+.selected-topic {
+  background-color: #008fb3;
+  color: #fff;
+}
+
+.pill-button {
+  border-radius: 500px;
+  background-color: rgb(231, 231, 231);
+  box-shadow: rgb(231 231 231) 0px 0px 0px 2px inset;
+  transition: background-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  border: none;
+}
+
+.pill-button:hover {
+  background-color: rgb(247, 247, 247);
+  box-shadow: rgb(247 247 247) 0px 0px 0px 2px inset;
+  color: rgb(25, 25, 25);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.disabled-link {
+  pointer-events: none;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  align-content: center;
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.padding-small {
+  padding: 16px;
+}
+
+.margin-small {
+  margin: 16px;
 }

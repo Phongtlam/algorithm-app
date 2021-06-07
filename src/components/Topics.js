@@ -1,14 +1,13 @@
 import { Link, useHistory } from "react-router-dom";
 import * as topicConstants from "../constants/topics";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import classnames from "classnames";
+import Button from "./Button";
 
 const topics = [
   topicConstants.slidingWindows,
   topicConstants.twoPointers,
   topicConstants.intervals,
-  topicConstants.treeBFS,
-  topicConstants.treeDFS,
-  topicConstants.treeBST,
   topicConstants.treeGeneral,
   topicConstants.treeTrie,
   topicConstants.subsetCombination,
@@ -18,46 +17,65 @@ const topics = [
 ];
 
 const Topics = () => {
-  const [selectedTopics, setTopics] = useState([])
+  const [selectedTopics, setTopics] = useState({});
 
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
-      history.push(`/groupTopics/${selectedTopics.join("+")}`)
-  }, [selectedTopics, history])
+    const selectedTopicsNames = Object.keys(selectedTopics);
 
-
-  const onChange = (e) => {
-    const currentTopics = [...selectedTopics]
-    if (e.target.checked) {
-      currentTopics.push(e.target.value)
+    if (selectedTopicsNames.length) {
+      history.push(`/topics/${selectedTopicsNames.join("+")}`);
     } else {
-      const index = currentTopics.indexOf(e.target.value)
-      currentTopics.splice(index, 1)
+      history.push("/home");
     }
+  }, [selectedTopics, history]);
 
-    setTopics(currentTopics)
-  }
+  const handleTopicSelect = (topic) => {
+    const currentTopics = { ...selectedTopics };
+    if (currentTopics[topic]) {
+      delete currentTopics[topic];
+    } else {
+      currentTopics[topic] = true;
+    }
+    setTopics(currentTopics);
+  };
+
+  const currentTopics = Object.keys(selectedTopics)
 
   return (
     <>
-      <form>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
+      <ul>
+        {topics.map((topic) => (
+          <li key={`${topic}-selection`} className="margin-small">
+            <Button
+              onClick={() => handleTopicSelect(topic)}
+              className={classnames({
+                "selected-topic": selectedTopics[topic] === true,
+              })}
+            >
+              {topic}
+            </Button>
           </li>
-          {topics.map((topic) => (
-            <li key={topic}>
-              <label>
-                <Link to={`/topic/${topic}`}>{topic}</Link>
-              </label>
-              <input type="checkbox" value={topic} onChange={onChange} />
+        ))}
+      </ul>
+      <br />
+      <header>Problems from the following topics:</header>
+      <br />
+      <ul>
+        {currentTopics.map(topic => {
+          return (
+            <li key={`${topic}-selection-removal`} className='inline margin-small'>
+              <Button size='small' className='pill-button' onClick={() => handleTopicSelect(topic)}>
+                {topic} X
+              </Button>
             </li>
-          ))}
-        </ul>
-      </form>
+          )
+        })}
+      </ul>
+      <br />
     </>
   );
 };
 
-export default Topics
+export default Topics;

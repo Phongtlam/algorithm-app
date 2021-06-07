@@ -1,6 +1,6 @@
 import { Link, useHistory } from "react-router-dom";
 import * as topicConstants from "../constants/topics";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import Button from "./Button";
 
@@ -41,7 +41,7 @@ const Topics = () => {
     setTopics(currentTopics);
   };
 
-  const currentTopics = Object.keys(selectedTopics)
+  const currentTopics = Object.keys(selectedTopics);
 
   return (
     <>
@@ -63,14 +63,22 @@ const Topics = () => {
       <header>Problems from the following topics:</header>
       <br />
       <ul>
-        {currentTopics.map(topic => {
+        {currentTopics.map((topic) => {
           return (
-            <li key={`${topic}-selection-removal`} className='inline margin-small'>
-              <Button size='small' className='pill-button' onClick={() => handleTopicSelect(topic)}>
+            <li
+              key={`${topic}-selection-removal`}
+              className="inline margin-small"
+            >
+              <Button
+                size="small"
+                type="danger"
+                className="pill-button"
+                onClick={() => handleTopicSelect(topic)}
+              >
                 {topic} X
               </Button>
             </li>
-          )
+          );
         })}
       </ul>
       <br />

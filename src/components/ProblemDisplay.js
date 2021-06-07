@@ -14,8 +14,8 @@ const ProblemsDisplay = () => {
   for (let topicName of topicNamesArray) {
     problemsMap = {
       ...topicsMap[topicName],
-      ...problemsMap
-    }
+      ...problemsMap,
+    };
   }
 
   const problemNames = Object.keys(problemsMap);
@@ -40,7 +40,11 @@ const ProblemsDisplay = () => {
           {problemNames.map((problemName) => {
             return (
               <li key={problemName}>
-                <a href={problemsMap[problemName]} target="_blank" rel="noreferrer">
+                <a
+                  href={problemsMap[problemName]}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {problemName}
                 </a>
               </li>

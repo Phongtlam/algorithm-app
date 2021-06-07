@@ -43,10 +43,15 @@
   color: #fff;
 }
 
-.App-button-danger, .App-button-danger:hover {
-  background-color: #d9534f;
+.App-button-danger,
+.App-button-danger:hover {
+  background-color: #cf2e2e;
   border: 2px solid #d9534f;
   color: #fff;
+}
+
+.App-button-danger:hover {
+  background-color: #902020;
 }
 
 .App-button-small {
@@ -60,16 +65,6 @@
 
 .pill-button {
   border-radius: 500px;
-  background-color: rgb(231, 231, 231);
-  box-shadow: rgb(231 231 231) 0px 0px 0px 2px inset;
-  transition: background-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-  border: none;
-}
-
-.pill-button:hover {
-  background-color: rgb(247, 247, 247);
-  box-shadow: rgb(247 247 247) 0px 0px 0px 2px inset;
-  color: rgb(25, 25, 25);
 }
 
 ul {

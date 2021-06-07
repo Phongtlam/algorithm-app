@@ -23,7 +23,7 @@ const App = () => {
             <Route path="/topics/:names">
               <ProblemsDisplay />
             </Route>
-            <Route path="/">
+            <Route path="*">
               <Home />
             </Route>
           </Switch>

@@ -27,7 +27,7 @@ const Topics = () => {
     if (selectedTopicsNames.length) {
       history.push(`/topics/${selectedTopicsNames.join("+")}`);
     } else {
-      history.push("/home");
+      history.push("/");
     }
   }, [selectedTopics, history]);
 

@@ -2,21 +2,23 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProblemsDisplay from "./components/ProblemDisplay";
 import Topics from "./components/Topics";
+import React from "react";
 
 const App = () => {
+  console.log('public url', process.env.PUBLIC_URL)
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Topics />
         <div>
           <Switch>
-            <Route path="/topic/:name">
+            <Route exact path="/topic/:name">
               <ProblemsDisplay />
             </Route>
-            <Route path="/topics/:names">
+            <Route exact path="/topics/:names">
               <ProblemsDisplay />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
           </Switch>

@@ -1,4 +1,4 @@
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as topicConstants from "../constants/topics";
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";

@@ -6,19 +6,24 @@ import React from "react";
 
 const App = () => {
   console.log('public url', process.env.PUBLIC_URL)
+
+  // const history = createHistory({
+  //   basename: process.env.PUBLIC_URL,
+  // });
+
   return (
     <div className="App">
       <Router basename={process.env.PUBLIC_URL}>
         <Topics />
         <div>
           <Switch>
-            <Route exact path="/topic/:name">
+            <Route path="/topic/:name">
               <ProblemsDisplay />
             </Route>
-            <Route exact path="/topics/:names">
+            <Route path="/topics/:names">
               <ProblemsDisplay />
             </Route>
-            <Route exact path="/">
+            <Route path="/">
               <Home />
             </Route>
           </Switch>

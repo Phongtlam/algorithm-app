@@ -1,8 +1,9 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import * as topicConstants from "../constants/topics";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classnames from "classnames";
 import Button from "./Button";
+import FlexWrapper from "./FlexWrapper";
 
 const topics = [
   topicConstants.slidingWindows,
@@ -17,41 +18,38 @@ const topics = [
 ];
 
 const Topics = () => {
-  const [selectedTopics, setTopics] = useState({});
-
   const history = useHistory();
+  const location = useLocation();
 
-  useEffect(() => {
-    const selectedTopicsNames = Object.keys(selectedTopics);
+  const currentTopics = location.pathname.split("/topics/")[1] || "";
+  const currentTopicsArray = currentTopics.length
+    ? currentTopics.split("+")
+    : [];
+  const currentTopicsSet = new Set(currentTopicsArray);
 
-    if (selectedTopicsNames.length) {
-      history.push(`/topics/${selectedTopicsNames.join("+")}`);
+  const handleTopicSelect = (topic) => {
+    if (currentTopicsSet.has(topic)) {
+      currentTopicsSet.delete(topic);
+    } else {
+      currentTopicsSet.add(topic);
+    }
+    const pathName = Array.from(currentTopicsSet);
+    if (pathName.length) {
+      history.push(`/topics/${pathName.join("+")}`);
     } else {
       history.push("/");
     }
-  }, [selectedTopics, history]);
-
-  const handleTopicSelect = (topic) => {
-    const currentTopics = { ...selectedTopics };
-    if (currentTopics[topic]) {
-      delete currentTopics[topic];
-    } else {
-      currentTopics[topic] = true;
-    }
-    setTopics(currentTopics);
   };
 
-  const currentTopics = Object.keys(selectedTopics);
-
   return (
-    <>
+    <FlexWrapper size="50" direction="column">
       <ul>
         {topics.map((topic) => (
           <li key={`${topic}-selection`} className="margin-small">
             <Button
               onClick={() => handleTopicSelect(topic)}
-              className={classnames({
-                "selected-topic": selectedTopics[topic] === true,
+              className={classnames("width-100", {
+                "selected-topic": currentTopicsSet.has(topic),
               })}
             >
               {topic}
@@ -59,30 +57,30 @@ const Topics = () => {
           </li>
         ))}
       </ul>
-      <br />
-      <header>Problems from the following topics:</header>
-      <br />
-      <ul>
-        {currentTopics.map((topic) => {
-          return (
-            <li
-              key={`${topic}-selection-removal`}
-              className="inline margin-small"
-            >
-              <Button
-                size="small"
-                type="danger"
-                className="pill-button"
-                onClick={() => handleTopicSelect(topic)}
+      <div>
+        <header>Problems from the following topics:</header>
+        <br />
+        <ul>
+          {currentTopicsArray.map((topic) => {
+            return (
+              <li
+                key={`${topic}-selection-removal`}
+                className="inline margin-small"
               >
-                {topic} X
-              </Button>
-            </li>
-          );
-        })}
-      </ul>
-      <br />
-    </>
+                <Button
+                  size="small"
+                  type="danger"
+                  className="pill-button margin-xSmall"
+                  onClick={() => handleTopicSelect(topic)}
+                >
+                  {topic} X
+                </Button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </FlexWrapper>
   );
 };
 

@@ -17,6 +17,14 @@ const topics = [
   topicConstants.graph,
 ];
 
+const SelectRemoveAllButton = ({ isRemove }) => {
+  return (
+    <Button type="link" href={isRemove ? "/" : `/topics/${topics.join("+")}`}>
+      {isRemove ? "Remove All Topics" : "Select All Topics"}
+    </Button>
+  );
+};
+
 const Topics = () => {
   const history = useHistory();
   const location = useLocation();
@@ -56,7 +64,13 @@ const Topics = () => {
             </Button>
           </li>
         ))}
+        <li>
+          <SelectRemoveAllButton
+            isRemove={currentTopicsSet.size === topics.length}
+          />
+        </li>
       </ul>
+      <br />
       <div>
         <header>Problems from the following topics:</header>
         <br />

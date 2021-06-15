@@ -71,6 +71,10 @@ ul {
   list-style-type: none;
 }
 
+.button-link {
+  text-decoration: none;
+}
+
 .disabled-link {
   pointer-events: none;
 }

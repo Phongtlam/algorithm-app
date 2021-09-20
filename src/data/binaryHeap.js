@@ -7,6 +7,9 @@ const binaryHeap = {
     "https://leetcode.com/problems/kth-largest-element-in-an-array/",
   "Top K Frequent Elements":
     "https://leetcode.com/problems/top-k-frequent-elements/",
+  "Rearrange String k Distance Apart":
+    "https://leetcode.com/problems/rearrange-string-k-distance-apart/",
+  "Task Scheduler": "https://leetcode.com/problems/task-scheduler/",
 };
 
 export default binaryHeap;

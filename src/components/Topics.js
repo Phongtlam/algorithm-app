@@ -19,7 +19,11 @@ const topics = [
 
 const SelectRemoveAllButton = ({ isRemove }) => {
   return (
-    <Button type="link" href={isRemove ? "/" : `/topics/${topics.join("+")}`}>
+    <Button
+      type="link"
+      href={isRemove ? "/" : `/topics/${topics.join("+")}`}
+      size="small"
+    >
       {isRemove ? "Remove All Topics" : "Select All Topics"}
     </Button>
   );

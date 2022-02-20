@@ -15,6 +15,7 @@ const topics = [
   topicConstants.backtracking,
   topicConstants.binaryHeap,
   topicConstants.graph,
+  topicConstants.matrix,
 ];
 
 const SelectRemoveAllButton = ({ isRemove }) => {

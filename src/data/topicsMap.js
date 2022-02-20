@@ -11,6 +11,7 @@ import subsetCombination from "./subsetCombination";
 import backtracking from "./backtracking";
 import binaryHeap from "./binaryHeap";
 import graph from "./graph";
+import matrix from "./matrix";
 
 const topicsMap = {
   [topicConstants.slidingWindows]: slidingWindows,
@@ -25,6 +26,7 @@ const topicsMap = {
   [topicConstants.backtracking]: backtracking,
   [topicConstants.binaryHeap]: binaryHeap,
   [topicConstants.graph]: graph,
+  [topicConstants.matrix]: matrix,
 };
 
 export default topicsMap;

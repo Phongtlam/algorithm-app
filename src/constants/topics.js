@@ -10,3 +10,4 @@ export const subsetCombination = "Subset and Combination";
 export const backtracking = "Backtracking";
 export const binaryHeap = "Binary Heap";
 export const graph = "Graph";
+export const matrix = "Matrix";

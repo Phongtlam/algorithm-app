@@ -13,6 +13,8 @@ const slidingWindows = {
     "https://leetcode.com/problems/longest-repeating-character-replacement/",
   "Longest Palindrome Substring":
     "https://leetcode.com/problems/longest-palindromic-substring/",
+  "Find All Anagrams in a String":
+    "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
 };
 
 export default slidingWindows;

@@ -11,3 +11,4 @@ export const backtracking = "Backtracking";
 export const binaryHeap = "Binary Heap";
 export const graph = "Graph";
 export const matrix = "Matrix";
+export const bfs = "BFS";

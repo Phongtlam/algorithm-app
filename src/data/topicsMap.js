@@ -12,6 +12,7 @@ import backtracking from "./backtracking";
 import binaryHeap from "./binaryHeap";
 import graph from "./graph";
 import matrix from "./matrix";
+import bfs from "./BFS";
 
 const topicsMap = {
   [topicConstants.slidingWindows]: slidingWindows,
@@ -27,6 +28,7 @@ const topicsMap = {
   [topicConstants.binaryHeap]: binaryHeap,
   [topicConstants.graph]: graph,
   [topicConstants.matrix]: matrix,
+  [topicConstants.bfs]: bfs,
 };
 
 export default topicsMap;

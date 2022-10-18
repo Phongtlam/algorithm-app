@@ -16,6 +16,7 @@ const topics = [
   topicConstants.binaryHeap,
   topicConstants.graph,
   topicConstants.matrix,
+  topicConstants.bfs,
 ];
 
 const SelectRemoveAllButton = ({ isRemove }) => {
